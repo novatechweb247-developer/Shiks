@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { Sparkles, ArrowRight, Eye } from 'lucide-react';
 import { LOOKBOOK_ITEMS } from '../data/fashionData';
-import { LookbookItem, Product } from '../types/fashion';
 import { MediaImage } from './MediaImage';
 
 interface RunwayLookbookProps {
@@ -19,13 +19,19 @@ export const RunwayLookbook: React.FC<RunwayLookbookProps> = ({ onQuickViewProdu
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6 border-b border-zinc-800 pb-8">
+        {/* Section Header with Scroll Pop */}
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6 border-b border-zinc-800 pb-8"
+        >
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="w-6 h-[1px] bg-purple-400" />
               <span className="text-xs uppercase tracking-[0.3em] font-semibold text-purple-300">
-                HAUTE COUTURE RUNWAY ARCHIVE
+                SHIKS FASHION ALUMNI IMPACT RUNWAY
               </span>
             </div>
             <h2 className="font-cinzel text-3xl sm:text-5xl font-bold tracking-tight text-white">
@@ -34,14 +40,20 @@ export const RunwayLookbook: React.FC<RunwayLookbookProps> = ({ onQuickViewProdu
           </div>
 
           <p className="text-xs sm:text-sm text-zinc-400 font-light max-w-md">
-            Click garment hotspots directly on the runway models to inspect atelier construction, fabrics, and direct salon orders.
+            Interactive runway showcase. Click garment hotspots directly on the runway models to inspect atelier construction, fabrics, and direct salon orders.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Main Showcase Layout */}
+        {/* Main Showcase Layout with Scroll Pop */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left: Interactive Model Visual with Hotspots (Cols 7) */}
-          <div className="lg:col-span-7 relative aspect-[3/4] max-h-[720px] bg-zinc-900 overflow-hidden shadow-2xl border border-purple-900/30">
+          {/* Left: Interactive Model Visual with Hotspots with Scroll Pop */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 relative aspect-[3/4] max-h-[720px] bg-zinc-900 overflow-hidden shadow-2xl border border-purple-900/30"
+          >
             <MediaImage
               src={activeLook.image}
               alt={activeLook.title}
@@ -92,10 +104,16 @@ export const RunwayLookbook: React.FC<RunwayLookbookProps> = ({ onQuickViewProdu
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Right: Look Details & Selector Carousel (Cols 5) */}
-          <div className="lg:col-span-5 space-y-8">
+          {/* Right: Look Details & Selector Carousel with Scroll Pop */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="lg:col-span-5 space-y-8"
+          >
             <div className="space-y-4">
               <div className="text-xs uppercase tracking-[0.3em] font-semibold text-purple-400">
                 {activeLook.model}
@@ -158,7 +176,7 @@ export const RunwayLookbook: React.FC<RunwayLookbookProps> = ({ onQuickViewProdu
                 })}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

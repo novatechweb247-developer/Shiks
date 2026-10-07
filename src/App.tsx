@@ -10,10 +10,13 @@ import { MarqueeBanner } from './components/MarqueeBanner';
 import { FeaturedCollections } from './components/FeaturedCollections';
 import { ProductCatalog } from './components/ProductCatalog';
 import { RunwayLookbook } from './components/RunwayLookbook';
+import { InnovationHubSection } from './components/InnovationHubSection';
+import { FounderSection } from './components/FounderSection';
 import { BrandPhilosophy } from './components/BrandPhilosophy';
 import { BoutiquesSection } from './components/BoutiquesSection';
 import { InstagramFeed } from './components/InstagramFeed';
 import { Footer } from './components/Footer';
+import { Preloader } from './components/Preloader';
 import { QuickViewModal } from './components/QuickViewModal';
 import { CartDrawer } from './components/CartDrawer';
 import { CheckoutModal } from './components/CheckoutModal';
@@ -22,11 +25,11 @@ import { WishlistDrawer } from './components/WishlistDrawer';
 import { BespokeAppointmentModal } from './components/BespokeAppointmentModal';
 import { PRODUCTS } from './data/fashionData';
 import { Product, CartItem } from './types/fashion';
-import { ArrowUp, Sparkles } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [cartItems, setCartItems] = useState<CartItem[]>([
-    // Starter curated item in the luxury bag
     {
       product: PRODUCTS[0],
       selectedSize: 'FR 36 (S)',
@@ -34,7 +37,7 @@ export default function App() {
       quantity: 1
     }
   ]);
-  const [wishlistIds, setWishlistIds] = useState<string[]>(['six-02', 'six-07']);
+  const [wishlistIds, setWishlistIds] = useState<string[]>(['six-01', 'six-06']);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
 
@@ -119,123 +122,134 @@ export default function App() {
   const totalCartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div className="min-h-screen bg-white text-zinc-950 font-sans flex flex-col selection:bg-purple-600 selection:text-white">
-      {/* Header */}
-      <Header
-        cartCount={totalCartCount}
-        wishlistCount={wishlistIds.length}
-        onOpenCart={() => setIsCartOpen(true)}
-        onOpenWishlist={() => setIsWishlistOpen(true)}
-        onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenAppointment={() => setIsAppointmentOpen(true)}
-        activeSection="home"
-      />
+    <>
+      {/* PREMIUM INTRO LOADING SCREEN */}
+      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
 
-      <main className="flex-1">
-        {/* HERO SECTION — EXACTLY 3 SLIDES */}
-        <Hero
-          onCtaClick={handleHeroCta}
+      <div className="min-h-screen bg-white text-zinc-950 font-sans flex flex-col selection:bg-purple-600 selection:text-white">
+        {/* Header with animated hamburger */}
+        <Header
+          cartCount={totalCartCount}
+          wishlistCount={wishlistIds.length}
+          onOpenCart={() => setIsCartOpen(true)}
+          onOpenWishlist={() => setIsWishlistOpen(true)}
+          onOpenSearch={() => setIsSearchOpen(true)}
           onOpenAppointment={() => setIsAppointmentOpen(true)}
+          activeSection="home"
         />
 
-        {/* Marquee Banner */}
-        <MarqueeBanner />
+        <main className="flex-1">
+          {/* HERO SECTION — STRICTLY 3 SLIDES ONLY */}
+          <Hero
+            onCtaClick={handleHeroCta}
+            onOpenAppointment={() => setIsAppointmentOpen(true)}
+          />
 
-        {/* Featured Capsules / Collections */}
-        <FeaturedCollections onSelectCategory={handleSelectCategory} />
+          {/* Marquee Banner */}
+          <MarqueeBanner />
 
-        {/* Main Product Catalog */}
-        <ProductCatalog
-          products={PRODUCTS}
-          selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-          onQuickView={(p) => setQuickViewProduct(p)}
+          {/* Featured Capsules / Collections with Scroll Animations */}
+          <FeaturedCollections onSelectCategory={handleSelectCategory} />
+
+          {/* Main Product Catalog with Scroll Pop Animations */}
+          <ProductCatalog
+            products={PRODUCTS}
+            selectedCategory={selectedCategory}
+            onSelectCategory={setSelectedCategory}
+            onQuickView={(p) => setQuickViewProduct(p)}
+            onAddToCart={handleAddToCart}
+            onToggleWishlist={handleToggleWishlist}
+            wishlistIds={wishlistIds}
+          />
+
+          {/* Shop The Runway Lookbook */}
+          <RunwayLookbook onQuickViewProductById={handleQuickViewById} />
+
+          {/* Shiks 3-in-1 Model & Innovation Hub */}
+          <InnovationHubSection onOpenAppointment={() => setIsAppointmentOpen(true)} />
+
+          {/* Meet Founder & CEO Maryam Sadiq Shikra */}
+          <FounderSection />
+
+          {/* Maison Shiks Philosophy & Heritage */}
+          <BrandPhilosophy />
+
+          {/* Flagship Hub in Jos & Private Salons */}
+          <BoutiquesSection onOpenAppointment={() => setIsAppointmentOpen(true)} />
+
+          {/* Social Media Wall (@shiksfashionacademy) */}
+          <InstagramFeed />
+        </main>
+
+        {/* Luxury Footer */}
+        <Footer
+          onOpenAppointment={() => setIsAppointmentOpen(true)}
+          onSelectCategory={handleSelectCategory}
+        />
+
+        {/* Quick View Modal */}
+        <QuickViewModal
+          product={quickViewProduct}
+          onClose={() => setQuickViewProduct(null)}
           onAddToCart={handleAddToCart}
           onToggleWishlist={handleToggleWishlist}
-          wishlistIds={wishlistIds}
+          isWishlisted={quickViewProduct ? wishlistIds.includes(quickViewProduct.id) : false}
         />
 
-        {/* Shop The Runway Lookbook */}
-        <RunwayLookbook onQuickViewProductById={handleQuickViewById} />
+        {/* Cart Drawer */}
+        <CartDrawer
+          isOpen={isCartOpen}
+          onClose={() => setIsCartOpen(false)}
+          items={cartItems}
+          onUpdateQuantity={handleUpdateQuantity}
+          onRemoveItem={handleRemoveFromCart}
+          onCheckout={() => {
+            setIsCartOpen(false);
+            setIsCheckoutOpen(true);
+          }}
+        />
 
-        {/* Maison Six Philosophy & Atelier Story */}
-        <BrandPhilosophy />
+        {/* Wishlist Drawer */}
+        <WishlistDrawer
+          isOpen={isWishlistOpen}
+          onClose={() => setIsWishlistOpen(false)}
+          wishlistProducts={wishlistProducts}
+          onRemoveWishlist={handleToggleWishlist}
+          onAddToCart={(p) => handleAddToCart(p)}
+        />
 
-        {/* Global Boutiques & Flagship Salons */}
-        <BoutiquesSection onOpenAppointment={() => setIsAppointmentOpen(true)} />
+        {/* Search Modal */}
+        <SearchModal
+          isOpen={isSearchOpen}
+          onClose={() => setIsSearchOpen(false)}
+          products={PRODUCTS}
+          onSelectProduct={(p) => setQuickViewProduct(p)}
+        />
 
-        {/* Social Media Energy (@SIXFASHION) */}
-        <InstagramFeed />
-      </main>
+        {/* Bespoke VIP Appointment Modal */}
+        <BespokeAppointmentModal
+          isOpen={isAppointmentOpen}
+          onClose={() => setIsAppointmentOpen(false)}
+        />
 
-      {/* Luxury Footer */}
-      <Footer
-        onOpenAppointment={() => setIsAppointmentOpen(true)}
-        onSelectCategory={handleSelectCategory}
-      />
+        {/* Checkout Modal */}
+        <CheckoutModal
+          isOpen={isCheckoutOpen}
+          onClose={() => setIsCheckoutOpen(false)}
+          items={cartItems}
+          onOrderSuccess={() => setCartItems([])}
+        />
 
-      {/* Quick View Modal */}
-      <QuickViewModal
-        product={quickViewProduct}
-        onClose={() => setQuickViewProduct(null)}
-        onAddToCart={handleAddToCart}
-        onToggleWishlist={handleToggleWishlist}
-        isWishlisted={quickViewProduct ? wishlistIds.includes(quickViewProduct.id) : false}
-      />
-
-      {/* Cart Drawer */}
-      <CartDrawer
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        items={cartItems}
-        onUpdateQuantity={handleUpdateQuantity}
-        onRemoveItem={handleRemoveFromCart}
-        onCheckout={() => {
-          setIsCartOpen(false);
-          setIsCheckoutOpen(true);
-        }}
-      />
-
-      {/* Wishlist Drawer */}
-      <WishlistDrawer
-        isOpen={isWishlistOpen}
-        onClose={() => setIsWishlistOpen(false)}
-        wishlistProducts={wishlistProducts}
-        onRemoveWishlist={handleToggleWishlist}
-        onAddToCart={(p) => handleAddToCart(p)}
-      />
-
-      {/* Search Modal */}
-      <SearchModal
-        isOpen={isSearchOpen}
-        onClose={() => setIsSearchOpen(false)}
-        products={PRODUCTS}
-        onSelectProduct={(p) => setQuickViewProduct(p)}
-      />
-
-      {/* Bespoke VIP Appointment Modal */}
-      <BespokeAppointmentModal
-        isOpen={isAppointmentOpen}
-        onClose={() => setIsAppointmentOpen(false)}
-      />
-
-      {/* Checkout Modal */}
-      <CheckoutModal
-        isOpen={isCheckoutOpen}
-        onClose={() => setIsCheckoutOpen(false)}
-        items={cartItems}
-        onOrderSuccess={() => setCartItems([])}
-      />
-
-      {/* Floating Scroll-to-Top Button */}
-      <button
-        type="button"
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        aria-label="Scroll to top"
-        className="fixed bottom-6 right-6 z-30 p-3 bg-purple-950 text-white rounded-full shadow-xl hover:bg-purple-900 hover:scale-105 transition-all border border-purple-800/50 cursor-pointer"
-      >
-        <ArrowUp className="w-4 h-4" />
-      </button>
-    </div>
+        {/* Floating Scroll-to-Top Button */}
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Scroll to top"
+          className="fixed bottom-6 right-6 z-30 p-3 bg-purple-950 text-white rounded-full shadow-xl hover:bg-purple-900 hover:scale-105 transition-all border border-purple-800/50 cursor-pointer"
+        >
+          <ArrowUp className="w-4 h-4" />
+        </button>
+      </div>
+    </>
   );
 }

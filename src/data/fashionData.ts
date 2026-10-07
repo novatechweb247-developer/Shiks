@@ -1,53 +1,72 @@
 import { Product, HeroSlide, Collection, LookbookItem } from '../types/fashion';
 
+export const BRAND_INFO = {
+  name: "SHIKS FASHION",
+  legalName: "Shiks Fashion & Innovation Hub",
+  founder: "Maryam Sadiq Shikra",
+  founderTitle: "Founder & CEO, Award-Winning Fashion Designer & Youth Advocate",
+  motto: "BUILDING SKILLS · CREATING OPPORTUNITIES · SHAPING THE FUTURE OF FASHION",
+  established: 2016,
+  headquarters: "British American Junction, Right Beside Kingsbite, Jos, Plateau State, Nigeria",
+  phone1: "07035623741",
+  phone2: "09050788214",
+  email: "shiksfashion2014@gmail.com",
+  instagram: "@shiksfashionacademy",
+  facebook: "shiksFashionBoutiq",
+  alumniTrained: "500+",
+  awardTitle: "Best Fashion School in Plateau State (Multiple Award Winner)",
+  alumniSummitDate: "9 January 2027",
+  sharedFacilityBudget: "₦119,000,000"
+};
+
 export const HERO_SLIDES: HeroSlide[] = [
   {
     id: 1,
     slideNumber: "01",
-    kicker: "MAISON SIX // AUTUMN-WINTER COUTURE",
+    kicker: "SHIKS FASHION // HAUTE COUTURE & INNOVATION HUB",
     title: "REGAL SILHOUETTES. ARCHITECTURAL TAILORING.",
-    subtitle: "DEFINING MODERN FASHION REGALITY",
-    description: "Where bold contemporary vision meets bespoke Parisian craftsmanship. An unapologetic dialogue of alabaster white, regal purple velvet, and sculptured drapery.",
+    subtitle: "SHAPING THE FUTURE OF AFRICAN & GLOBAL FASHION",
+    description: "Founded in 2016 by Maryam Sadiq Shikra in Jos, Plateau State. An unapologetic dialogue of royal purple, alabaster white, bespoke bridal couture, and master garment construction.",
     ctaText: "EXPLORE COLLECTION",
     ctaTarget: "#catalog",
     image: "/images/IMG_9791.jpg",
-    tagline: "HAUTE COUTURE // EDITORIAL I",
-    highlightCategory: "Runway Capsule"
+    tagline: "COUTURE & BRIDAL // EDITORIAL I",
+    highlightCategory: "Bridal & Reception"
   },
   {
     id: 2,
     slideNumber: "02",
-    kicker: "CAPSULE RELEASE // MONOGRAM & AMETHYST",
-    title: "THE ROYAL VELVET & SILK EVENINGWEAR",
-    subtitle: "FLUID DRAPE MEETS RAZOR PRECISION",
-    description: "Sculpted bodices, layered silk georgette, and midnight amethyst accents crafted for gala appearances and commanding authority.",
+    kicker: "THE 3-IN-1 MODEL // TRAINING · INCUBATION · PRODUCTION",
+    title: "THE ROYAL VELVET, ABAYA & BRIDAL GOWNS",
+    subtitle: "BRIDAL EXCELLENCE & MODEST HAUTE COUTURE",
+    description: "From reception and bridal masterpieces to modest fashion, abayas, and ready-to-wear collections crafted with industrial precision in our state-of-the-art facility.",
     ctaText: "DISCOVER SIX",
     ctaTarget: "#collections",
     image: "/images/IMG_9727.jpg",
-    tagline: "EVENINGWEAR // RUNWAY II",
+    tagline: "BRIDAL & READY-TO-WEAR // RUNWAY II",
     highlightCategory: "Eveningwear"
   },
   {
     id: 3,
     slideNumber: "03",
-    kicker: "PRIVATE ATELIER & SALON SERVICES",
-    title: "BESPOKE RUNWAY COMMISSIONS",
-    subtitle: "EXCLUSIVE COUTURE TAILORED TO YOU",
-    description: "Experience the private salon in Mayfair and Saint-Honoré. Hand-draped couture pieces customized to individual measurement and red-carpet vision.",
+    kicker: "ALUMNI IMPACT SUMMIT 2027 & SHARED PRODUCTION FACILITY",
+    title: "FROM SKILLS TO SUSTAINABLE ENTERPRISE",
+    subtitle: "OVER 500+ GRADUATES · AWARD-WINNING INNOVATION",
+    description: "Recognized as Best Fashion School in Plateau State. Powering the next generation through our ₦119M shared production facility and bespoke client commissions.",
     ctaText: "SHOP NOW",
     ctaTarget: "#catalog",
     image: "/images/DTO_3524.jpeg",
-    tagline: "THE ATELIER // COMMISSIONS III",
-    highlightCategory: "Suits & Tailoring"
+    tagline: "ENTERPRISE & ATELIER // COMMISSIONS III",
+    highlightCategory: "Bespoke & Academy"
   }
 ];
 
 export const COLLECTIONS: Collection[] = [
   {
-    id: "royal-amethyst",
-    name: "The Royal Amethyst Gala",
-    season: "Fall / Winter Haute Couture",
-    description: "Deep regal violet, crushed velvet, and luminous silk gowns designed for galas and ceremonial entrances.",
+    id: "royal-bridal",
+    name: "Reception & Royal Bridal Couture",
+    season: "Signature Bridal Edition",
+    description: "Bespoke bridal gowns, crystal-encrusted reception dresses, and custom hand-draped veils crafted for unforgettable celebrations.",
     image: "/images/IMG_9722.jpg",
     itemCount: 8,
     categoryTag: "Eveningwear"
@@ -55,49 +74,49 @@ export const COLLECTIONS: Collection[] = [
   {
     id: "architectural-blanche",
     name: "Alabaster Architectural Tailoring",
-    season: "Signature Monograph",
-    description: "Razor-cut ivory lapels, sculptural wool twill blazers, and cinched power silhouettes.",
+    season: "Power Suiting & Monograph",
+    description: "Razor-cut ivory lapels, structured blazers, and cinched power silhouettes made from premium double-faced wool twill.",
     image: "/images/ELS_9208.jpg",
     itemCount: 6,
     categoryTag: "Suits & Tailoring"
   },
   {
-    id: "velvet-silk",
-    name: "Luxe Velvet & Silk Separates",
-    season: "Capsule Noir & Violet",
-    description: "Sensory textures, French silk crepe, and amethyst piping for modern nightlife elegance.",
+    id: "modest-abaya",
+    name: "Modest Fashion & Royal Abayas",
+    season: "Heritage & Contemporary Cut",
+    description: "Flowing luxury abayas, modest silhouettes, and sensory purple silks tailored with modest elegance.",
     image: "/images/IMG_9788.jpg",
     itemCount: 7,
     categoryTag: "Silk & Velvet"
   },
   {
-    id: "runway-edits",
-    name: "Runway Statement Silhouettes",
-    season: "Limited Edition Drop",
-    description: "Hand-finished runway statements, dramatic capes, and architectural outerwear.",
+    id: "lifestyle-duvets",
+    name: "Luxury Duvets, Bedspreads & Pillows",
+    season: "Shiks Home & Souvenirs",
+    description: "Handcrafted luxury duvets, bespoke bedspreads, decorative throw pillows, and corporate event souvenirs.",
     image: "/images/IMG_0081.jpg",
     itemCount: 5,
-    categoryTag: "Runway Edit"
+    categoryTag: "Accessories"
   }
 ];
 
 export const PRODUCTS: Product[] = [
   {
     id: "six-01",
-    name: "The Amethyst Empress Sculpted Gown",
-    subtitle: "Hand-draped silk velvet with architectural cowl neckline",
+    name: "The Royal Amethyst Reception & Bridal Gown",
+    subtitle: "Hand-beaded silk velvet bodice with floor-sweeping ceremonial train",
     category: "Eveningwear",
     price: 1850,
     originalPrice: 2200,
-    description: "A showstopping centerpiece of the Six Fashion runway collection. Crafted from 100% royal purple mulberry silk velvet with hand-molded corsetry and fluid cascading side train.",
+    description: "The crown jewel of Shiks Fashion couture. Crafted from royal purple mulberry silk velvet with structural internal boning, Swarovski crystal neckline accents, and a dramatic detachable reception train.",
     details: [
-      "Custom internal boned corsetry for waist definition",
-      "Floor-sweeping asymmetrical train",
-      "Concealed hand-stitched invisible back zipper",
-      "Lined with ultra-soft mulberry silk charmeuse"
+      "Signature Shiks internal boned corset for sculpted waistline",
+      "Detachable ceremonial train for reception transitions",
+      "Hand-finished invisible back closure with pearl buttons",
+      "Mulberry silk lining designed for climate comfort"
     ],
-    fabric: "100% Mulberry Silk Velvet (450gsm)",
-    fit: "Sculpted column fit with dramatic flare",
+    fabric: "100% Pure Mulberry Silk Velvet (450gsm)",
+    fit: "Sculpted royal column with cathedral flare",
     care: "Specialist couture dry clean only",
     primaryImage: "/images/IMG_9727.jpg",
     hoverImage: "/images/IMG_9722.jpg",
@@ -105,26 +124,26 @@ export const PRODUCTS: Product[] = [
     sizes: ["FR 34 (XS)", "FR 36 (S)", "FR 38 (M)", "FR 40 (L)", "Bespoke Made-to-Measure"],
     colors: [
       { name: "Royal Amethyst", hex: "#4a154b", class: "bg-purple-900" },
-      { name: "Alabaster White", hex: "#ffffff", class: "bg-white" },
-      { name: "Obsidian Black", hex: "#111116", class: "bg-zinc-950" }
+      { name: "Pure Blanche", hex: "#ffffff", class: "bg-white" },
+      { name: "Obsidian Noir", hex: "#111116", class: "bg-zinc-950" }
     ],
     inStock: true,
     featured: true,
-    badge: "RUNWAY EDIT",
+    badge: "BRIDAL EDIT",
     lookNumber: "LOOK 01"
   },
   {
     id: "six-02",
     name: "The Blanche Architectural Tuxedo Blazer",
-    subtitle: "Hourglass tailored silhouette with hand-pressed peaked lapels",
+    subtitle: "Precision-tailored double-faced wool with silk faille peak lapels",
     category: "Suits & Tailoring",
     price: 1250,
-    description: "Precision-tailored in our European atelier from heavyweight double-faced Italian wool twill. Finished with silk faille peak lapels and Six Fashion signature horn buttons.",
+    description: "Designed by Maryam Sadiq Shikra. Engineered with architectural shoulders, razor peak lapels, and custom purple contrast buttonhole stitching.",
     details: [
-      "Signature sculpted waist and padded structural shoulders",
-      "Hand-finished silk faille contrasting peak lapels",
-      "Functional surgeon cuffs with purple contrast buttonhole thread",
-      "Two flap pockets and chest welt pocket"
+      "Structured hourglass silhouette with chest canvas construction",
+      "Hand-rolled silk faille contrast lapels",
+      "Hand-stitched purple monogram interior lining",
+      "Functional four-button surgeon cuffs"
     ],
     fabric: "100% Italian Virgin Wool Twill (Lining: 100% Cupro)",
     fit: "Tailored architectural hourglass fit",
@@ -144,32 +163,32 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "six-03",
-    name: "The Violet Mist Silk Bias-Cut Slip Dress",
-    subtitle: "Fluid 30mm silk satin with delicate French lace inserts",
+    name: "The Imperial Modest Abaya & Silk Slip",
+    subtitle: "Fluid French crepe abaya with delicate purple crystal cuffs",
     category: "Silk & Velvet",
     price: 890,
-    description: "Epitomizing ease and sensuality. Draped on the true bias to glide naturally over feminine curves. Features delicate hand-set purple Chantilly lace inserts at the back and neckline.",
+    description: "A triumph of modest elegance. Fluid cascading crepe with raglan batwing sleeves, subtle violet satin piping, and coordinated bias-cut underdress.",
     details: [
-      "True bias cut for effortless drape and fluid motion",
-      "Adjustable dainty spaghetti straps",
-      "French lace scalloped hemline",
-      "Low cowl back detail"
+      "Full-coverage flowing silhouette with graceful motion",
+      "Hand-applied amethyst crystal embellishment on cuffs",
+      "Concealed snap front fastening with matching silk Sheila wrap",
+      "Breathable high-thread-count fabric"
     ],
-    fabric: "100% Heavy Mulberry Silk Satin",
-    fit: "Sensual fluid drape",
-    care: "Delicate silk wash or specialist clean",
+    fabric: "Luxury Dubai Nida & Mulberry Silk Crepe",
+    fit: "Fluid modest drape",
+    care: "Delicate hand wash or gentle dry clean",
     primaryImage: "/images/IMG_9791.jpg",
     hoverImage: "/images/IMG_9788.jpg",
     additionalImages: ["/images/IMG_9791.jpg", "/images/IMG_9788.jpg", "/images/IMG_0403.jpg"],
-    sizes: ["FR 34 (XS)", "FR 36 (S)", "FR 38 (M)", "FR 40 (L)"],
+    sizes: ["Length 52 (XS)", "Length 54 (S)", "Length 56 (M)", "Length 58 (L)", "Length 60 (XL)"],
     colors: [
-      { name: "Electric Violet", hex: "#7c3aed", class: "bg-purple-600" },
-      { name: "Champagne Pearl", hex: "#f5f3ef", class: "bg-amber-50" },
-      { name: "Midnight Noir", hex: "#09090b", class: "bg-zinc-900" }
+      { name: "Royal Purple", hex: "#6b21a8", class: "bg-purple-700" },
+      { name: "Midnight Black", hex: "#09090b", class: "bg-zinc-900" },
+      { name: "Pearl Cream", hex: "#f5f3ef", class: "bg-amber-50" }
     ],
     inStock: true,
     featured: true,
-    badge: "BESTSELLER",
+    badge: "MODEST EDIT",
     lookNumber: "LOOK 06"
   },
   {
@@ -179,11 +198,11 @@ export const PRODUCTS: Product[] = [
     category: "Runway Edit",
     price: 2450,
     originalPrice: 2800,
-    description: "An imperial statement coat spun from double-faced pure Mongolian cashmere. Accented with subtle purple pick-stitch detailing along the lapel and belt tie.",
+    description: "Spun from double-faced pure Mongolian cashmere. Accented with subtle purple pick-stitch detailing along the lapel and belt tie.",
     details: [
       "Pure Mongolian unbrushed double-faced cashmere",
       "Detachable self-tie cashmere belt with sculpted horn buckle",
-      "Deep storm storm welt pockets",
+      "Deep storm welt pockets",
       "Hand-rolled internal seams"
     ],
     fabric: "100% Pure Mongolian Cashmere",
@@ -232,11 +251,40 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "six-06",
+    name: "Shiks Heritage Luxury Duvet & Throw Pillow Ensemble",
+    subtitle: "Mastercrafted bridal duvet with quilted embroidery and 4 matching pillows",
+    category: "Accessories",
+    price: 750,
+    description: "A signature specialty of Shiks Fashion & Innovations Hub. Quilted in our Jos production facility from premium Egyptian cotton and purple damask silk. Includes 1 king duvet, 1 bedspread, and 4 embroidered decorative throw pillows.",
+    details: [
+      "Custom monogram embroidery from our computerized embroidery machines",
+      "800-thread-count Egyptian cotton with silk damask jacquard",
+      "Hypoallergenic microfiber filling for cloud-soft warmth",
+      "Includes 4 tailored throw pillows with invisible zippers"
+    ],
+    fabric: "Egyptian Cotton & Damask Silk Jacquard",
+    fit: "King Bedspread (260cm x 240cm) + 4 Throw Pillows (45cm x 45cm)",
+    care: "Machine wash cold gentle or professional laundering",
+    primaryImage: "/images/IMG-20261007-WA0016.jpg",
+    hoverImage: "/images/IMG-20261007-WA0017.jpg",
+    additionalImages: ["/images/IMG-20261007-WA0016.jpg", "/images/IMG-20261007-WA0017.jpg"],
+    sizes: ["King Set", "Queen Set", "Super King Custom"],
+    colors: [
+      { name: "Royal Purple & Gold", hex: "#581c87", class: "bg-purple-800" },
+      { name: "Bridal White", hex: "#ffffff", class: "bg-white" }
+    ],
+    inStock: true,
+    featured: true,
+    badge: "HUB SPECIALTY",
+    lookNumber: "HOME 01"
+  },
+  {
+    id: "six-07",
     name: "The Sculpted Amethyst Corset Bodysuit",
     subtitle: "Architectural cupped bodice with boned velvet construction",
     category: "Silk & Velvet",
     price: 520,
-    description: "Designed to be worn standalone or layered beneath an open tuxedo. Hand-cut from crushed royal purple velvet with sweetheart sweetheart neckline and flex-steel boning.",
+    description: "Designed to be worn standalone or layered beneath an open tuxedo. Hand-cut from crushed royal purple velvet with sweetheart neckline and flex-steel boning.",
     details: [
       "Sweetheart neckline with underwire support",
       "12 flexible steel bones for flattering posture support",
@@ -260,42 +308,12 @@ export const PRODUCTS: Product[] = [
     lookNumber: "LOOK 07"
   },
   {
-    id: "six-07",
-    name: "The Monogram 'SIX' Leather Minaudière",
-    subtitle: "Structured calfskin evening clutch with amethyst crystal clasp",
-    category: "Accessories",
-    price: 980,
-    description: "Handcrafted in Florence from Italian box calfskin. Features an architectural hexagonal silhouette with a faceted purple amethyst crystal lock mechanism and detachable jewelry chain.",
-    details: [
-      "Custom faceted natural amethyst stone clasp mechanism",
-      "Smooth Italian box calf leather with gold foil embossed logo",
-      "Supple purple lambskin interior lining with card slot",
-      "Detachable 18k gold-dipped snake chain (55cm drop)"
-    ],
-    fabric: "100% Italian Box Calf Leather, Amethyst Quartz",
-    fit: "Structured mini clutch (20cm x 12cm x 6cm)",
-    care: "Wipe clean with soft microfiber cloth; store in dust bag",
-    primaryImage: "/images/IMG-20261007-WA0016.jpg",
-    hoverImage: "/images/IMG-20261007-WA0017.jpg",
-    additionalImages: ["/images/IMG-20261007-WA0016.jpg", "/images/IMG-20261007-WA0017.jpg"],
-    sizes: ["One Size"],
-    colors: [
-      { name: "Snow White", hex: "#ffffff", class: "bg-white" },
-      { name: "Royal Amethyst", hex: "#581c87", class: "bg-purple-800" },
-      { name: "Noir Onyx", hex: "#0f0f13", class: "bg-zinc-950" }
-    ],
-    inStock: true,
-    featured: true,
-    badge: "FINE ACCESSORY",
-    lookNumber: "LOOK 09"
-  },
-  {
     id: "six-08",
     name: "The Opera Drape Cape Gown",
     subtitle: "Floor-length crepe gown with dramatic pleated shoulder cape",
     category: "Eveningwear",
     price: 2100,
-    description: "Created for red-carpet impact. A fluid column dress with an integrated royal cape attached at the shoulders that billows as you move.",
+    description: "Created for red-carpet and wedding reception entrances. A fluid column dress with an integrated royal cape attached at the shoulders that billows as you move.",
     details: [
       "Integrated full-length flowing capelet back",
       "High jewel neckline with subtle keyhole fastening",
@@ -317,121 +335,39 @@ export const PRODUCTS: Product[] = [
     featured: false,
     badge: "RED CARPET",
     lookNumber: "LOOK 03"
+  }
+];
+
+export const SHIKS_PROGRAMS = [
+  {
+    title: "Fashion Design & Garment Construction",
+    description: "Comprehensive technical training covering pattern drafting, cutting, assembly, and fine finishes on industrial machinery.",
+    icon: "Scissors"
   },
   {
-    id: "six-09",
-    name: "The Oversized Silk Organza Trench",
-    subtitle: "Translucent featherlight trench with mother-of-pearl hardware",
-    category: "Runway Edit",
-    price: 1620,
-    description: "A breathtaking runway piece crafted from crisp 100% silk organza in sheer alabaster. Catches light with an ethereal glow while maintaining sharp structural volume.",
-    details: [
-      "Crisp sheer 100% silk organza",
-      "Wide storm flap with tonal purple binding",
-      "Genuine Australian mother-of-pearl buttons",
-      "Exaggerated raglan sleeves with cuff buckle straps"
-    ],
-    fabric: "100% Mulberry Silk Organza",
-    fit: "Oversized dramatic silhouette",
-    care: "Professional gentle dry clean",
-    primaryImage: "/images/IMG_0096.jpg",
-    hoverImage: "/images/IMG_0278.jpg",
-    additionalImages: ["/images/IMG_0096.jpg", "/images/IMG_0278.jpg"],
-    sizes: ["FR 36 (S)", "FR 38 (M)", "FR 40 (L)"],
-    colors: [
-      { name: "Translucent White", hex: "#fafafa", class: "bg-zinc-100" },
-      { name: "Lilac Haze", hex: "#d8b4fe", class: "bg-purple-300" }
-    ],
-    inStock: true,
-    featured: false,
-    badge: "AVANT-GARDE",
-    lookNumber: "LOOK 11"
+    title: "Modest Fashion & Abaya Design",
+    description: "Artisanal mastery in draped modest luxury, couture hijabs, bespoke abayas, and bridal coverage.",
+    icon: "Sparkles"
   },
   {
-    id: "six-10",
-    name: "The Amethyst Pavé Silk Headdress & Scarf",
-    subtitle: "Printed 90x90cm twill silk scarf with hand-rolled borders",
-    category: "Accessories",
-    price: 340,
-    description: "A collector's silk twill scarf showcasing the Six Fashion geometric monogram intertwined with stylized purple orchids and Parisian architecture.",
-    details: [
-      "Signature Six Fashion archival geometric monogram print",
-      "Hand-rolled and hand-sewn borders by French artisans",
-      "14mm pure mulberry silk twill with double-sided vibrancy",
-      "Delivered in bespoke Six Fashion purple presentation box"
-    ],
-    fabric: "100% Mulberry Silk Twill (14mm)",
-    fit: "90cm x 90cm square",
-    care: "Hand wash cold in silk detergent or dry clean",
-    primaryImage: "/images/IMG-20261007-WA0019.jpg",
-    hoverImage: "/images/IMG-20261007-WA0020.jpg",
-    additionalImages: ["/images/IMG-20261007-WA0019.jpg", "/images/IMG-20261007-WA0020.jpg"],
-    sizes: ["90cm x 90cm"],
-    colors: [
-      { name: "Monogram Violet", hex: "#7e22ce", class: "bg-purple-700" },
-      { name: "Blanche Ivory", hex: "#ffffff", class: "bg-white" }
-    ],
-    inStock: true,
-    featured: false,
-    badge: "ICONIC GIFT",
-    lookNumber: "LOOK 12"
+    title: "Textile & Surface Design",
+    description: "Hand and digital surface embellishment, fabric manipulation, beadwork, and computerized monogramming.",
+    icon: "Layers"
   },
   {
-    id: "six-11",
-    name: "The Sculpted Backless Velvet Midi",
-    subtitle: "High-neck halter with plunging low back and crystal detail",
-    category: "Eveningwear",
-    price: 1150,
-    description: "Modern cocktail glamour refined. Features a dignified high halter neckline contrasting with an ultra-daring low back, accented with a delicate purple crystal harness chain.",
-    details: [
-      "High halter neck with concealed hook and eye closure",
-      "Plunging scooped open back",
-      "Removable gold-plated crystal spine chain",
-      "Side slit for fluid motion"
-    ],
-    fabric: "Silk-Blend Velvet",
-    fit: "Fitted sheath through hip",
-    care: "Dry clean only",
-    primaryImage: "/images/IMG-20261007-WA0025.jpg",
-    hoverImage: "/images/IMG-20261007-WA0024.jpg",
-    additionalImages: ["/images/IMG-20261007-WA0025.jpg", "/images/IMG-20261007-WA0024.jpg"],
-    sizes: ["FR 34 (XS)", "FR 36 (S)", "FR 38 (M)", "FR 40 (L)"],
-    colors: [
-      { name: "Velvet Purple", hex: "#4a154b", class: "bg-purple-900" },
-      { name: "Onyx Black", hex: "#18181b", class: "bg-zinc-900" }
-    ],
-    inStock: true,
-    featured: false,
-    badge: "ATELIER FAVORITE",
-    lookNumber: "LOOK 02"
+    title: "Fashion Illustration & Digital CAD",
+    description: "Digital design systems, 3D prototyping, tech-packs, and visual portfolio development.",
+    icon: "Palette"
   },
   {
-    id: "six-12",
-    name: "The Blanche Minimalist Column Slip Skirt",
-    subtitle: "Ankle-skimming heavy silk crepe with asymmetrical hemline",
-    category: "Silk & Velvet",
-    price: 620,
-    description: "A foundational wardrobe investment. Sits smoothly on the hips with an elasticized inner grosgrain waistband and effortless sweeping drape.",
-    details: [
-      "Pure heavy silk crepe with matte sand-washed finish",
-      "Invisible internal grosgrain waistband",
-      "Subtle side godet pleat for leg stride",
-      "Finished with baby French seams"
-    ],
-    fabric: "100% Silk Crepe",
-    fit: "Sleek low-profile column",
-    care: "Dry clean or gentle hand wash",
-    primaryImage: "/images/IMG-20261007-WA0021.jpg",
-    hoverImage: "/images/IMG-20261007-WA0022.jpg",
-    additionalImages: ["/images/IMG-20261007-WA0021.jpg", "/images/IMG-20261007-WA0022.jpg"],
-    sizes: ["FR 34 (XS)", "FR 36 (S)", "FR 38 (M)", "FR 40 (L)"],
-    colors: [
-      { name: "Pure Blanche", hex: "#ffffff", class: "bg-white" },
-      { name: "Lilac Smoke", hex: "#c084fc", class: "bg-purple-400" }
-    ],
-    inStock: true,
-    featured: false,
-    lookNumber: "LOOK 10"
+    title: "Fashion Entrepreneurship & Business",
+    description: "Enterprise planning, pricing, marketing, financial literacy, and supply chain management for MSMEs.",
+    icon: "Briefcase"
+  },
+  {
+    title: "Production & Quality Control",
+    description: "Industrial garment manufacturing standards, finishing, and packaging to service bulk institutional contracts.",
+    icon: "ShieldCheck"
   }
 ];
 
@@ -439,14 +375,14 @@ export const LOOKBOOK_ITEMS: LookbookItem[] = [
   {
     id: "look-01",
     lookNumber: "LOOK 01",
-    title: "The Regal Empress Silhouette",
-    season: "Fall / Winter 2026 Runway",
-    description: "Opening look from the Paris salon. Amethyst silk velvet contoured with architectural boning and fluid train.",
+    title: "The Regal Empress Bridal & Reception Gown",
+    season: "Alumni Impact Showcase",
+    description: "Handcrafted in our Jos Innovation Hub. Amethyst silk velvet contoured with architectural boning and fluid train.",
     image: "/images/IMG_9727.jpg",
-    model: "Sasha V. (Paris Haute Couture Week)",
+    model: "Shiks Master Artisan (Jos Plateau State)",
     hotspots: [
       { x: 50, y: 35, productId: "six-01", title: "Amethyst Empress Sculpted Gown", price: 1850 },
-      { x: 65, y: 70, productId: "six-07", title: "Monogram Minaudière", price: 980 }
+      { x: 65, y: 70, productId: "six-06", title: "Luxury Embroidered Pillows", price: 750 }
     ]
   },
   {
@@ -456,7 +392,7 @@ export const LOOKBOOK_ITEMS: LookbookItem[] = [
     season: "Signature Monograph Edit",
     description: "A masterclass in restraint. Heavy Italian wool twill paired with razor-sharp peak lapels in alabaster white.",
     image: "/images/ELS_9208.jpg",
-    model: "Elena K. (London Mayfair Salon)",
+    model: "Shiks Graduate Runway (Plateau Fashion Week)",
     hotspots: [
       { x: 45, y: 40, productId: "six-02", title: "Blanche Tuxedo Blazer", price: 1250 },
       { x: 52, y: 80, productId: "six-05", title: "High-Waist Pleated Trouser", price: 680 }
@@ -465,13 +401,13 @@ export const LOOKBOOK_ITEMS: LookbookItem[] = [
   {
     id: "look-03",
     lookNumber: "LOOK 03",
-    title: "Midnight Violet Evening Slip",
+    title: "Midnight Violet Evening Slip & Modest Cut",
     season: "Nightfall Atelier Capsule",
     description: "Sensual 30mm heavy silk satin moving effortlessly against dark purple runway backdrops.",
     image: "/images/IMG_9791.jpg",
-    model: "Camille D. (Milan Presentation)",
+    model: "Shiks Academy Alumni Showcase",
     hotspots: [
-      { x: 48, y: 50, productId: "six-03", title: "Violet Mist Silk Slip Dress", price: 890 }
+      { x: 48, y: 50, productId: "six-03", title: "Imperial Modest Abaya & Silk Slip", price: 890 }
     ]
   },
   {
@@ -481,7 +417,7 @@ export const LOOKBOOK_ITEMS: LookbookItem[] = [
     season: "Winter Haute Couture",
     description: "Double-faced cashmere draped in an oversized cocoon silhouette with hand-rolled borders.",
     image: "/images/IMG_0081.jpg",
-    model: "Naomi R. (New York Private Salon)",
+    model: "Shiks Runway Series",
     hotspots: [
       { x: 50, y: 45, productId: "six-04", title: "Sovereign Double-Breasted Coat", price: 2450 }
     ]
@@ -490,57 +426,68 @@ export const LOOKBOOK_ITEMS: LookbookItem[] = [
 
 export const BOUTIQUES = [
   {
+    city: "Jos, Plateau State",
+    district: "Main Flagship Hub & Academy",
+    address: "British American Junction Right Beside Kingsbite, Jos, Plateau State, Nigeria",
+    hours: "Mon – Sat: 08:30 – 18:00 · Walk-ins & Consultations Welcome",
+    phone: "07035623741 / 09050788214",
+    email: "shiksfashion2014@gmail.com",
+    image: "/images/DTO_3524.jpeg"
+  },
+  {
     city: "London",
-    district: "Mayfair Flagship",
+    district: "Mayfair Private Client Representative",
     address: "34 Old Bond Street, London W1S 4QR",
-    hours: "Mon – Sat: 10:00 – 19:00 · Sun: By Private Appointment",
+    hours: "By Private Appointment",
     phone: "+44 (0)20 7946 0892",
-    email: "mayfair@sixfashion.com",
+    email: "international@sixfashion.com",
     image: "/images/IMG_0278.jpg"
   },
   {
     city: "Paris",
-    district: "Rue Saint-Honoré Atelier",
+    district: "Rue Saint-Honoré Client Salon",
     address: "18 Rue Saint-Honoré, 75001 Paris",
-    hours: "Lun – Sam: 10:30 – 19:30 · Dimanche: Sur Rendez-vous",
+    hours: "Sur Rendez-vous",
     phone: "+33 1 42 68 55 00",
     email: "paris@sixfashion.com",
     image: "/images/IMG_9788.jpg"
   },
   {
-    city: "New York",
-    district: "Madison Avenue Salon",
-    address: "712 Madison Avenue, New York, NY 10065",
-    hours: "Mon – Sat: 10:00 – 18:30 · VIP Evening Sessions",
-    phone: "+1 (212) 555-0196",
-    email: "newyork@sixfashion.com",
+    city: "Abuja",
+    district: "VIP Liaison Suite",
+    address: "Maitama / Central Business District, Abuja, Nigeria",
+    hours: "Bespoke Bridal & Couture Consultations",
+    phone: "09050788214",
+    email: "shiksfashion2014@gmail.com",
     image: "/images/IMG_0403.jpg"
-  },
-  {
-    city: "Milan",
-    district: "Via Montenapoleone Suite",
-    address: "Via Montenapoleone 9, 20121 Milano",
-    hours: "Lun – Sab: 10:00 – 19:00",
-    phone: "+39 02 8901 3400",
-    email: "milano@sixfashion.com",
-    image: "/images/IMG_0370.jpg"
   }
+];
+
+export const ECOSYSTEM_PARTNERS = [
+  "ITF (Industrial Training Fund)",
+  "GIZ (German International Cooperation)",
+  "PLASMIDA (Plateau Micro Enterprise Agency)",
+  "NYSC (National Youth Service Corps)",
+  "NDE (National Directorate of Employment)",
+  "IDEAS / TVET World Bank Project",
+  "NASME (National Association of Small & Medium Enterprises)",
+  "PLAFDA (Plateau Fashion Designers Association)"
 ];
 
 export const PRESS_QUOTES = [
   {
-    quote: "Six Fashion redefines modern royalty with razor-sharp tailoring and rich purple velvet that commands every room.",
-    publication: "VOGUE RUNWAY",
-    year: "2026"
+    quote: "Honoured multiple times as The Best Fashion School in Plateau State, Shiks Fashion is transforming vocational skills into world-class sustainable enterprises.",
+    publication: "PLATEAU EXCELLENCE AWARDS",
+    year: "ANNUAL WINNER"
   },
   {
-    quote: "The contrast of purest alabaster white and electric amethyst elevates Six into the upper echelon of contemporary fashion.",
-    publication: "HARPER'S BAZAAR",
-    year: "2026"
+    quote: "Maryam Sadiq Shikra's vision bridges traditional craftsmanship and modern haute couture, empowering hundreds of women into thriving businesses.",
+    publication: "YOUTH EMPOWERMENT MERIT AWARD",
+    year: "RECOGNITION"
   },
   {
-    quote: "A masterclass in modern silhouette. Six proves that architectural structure and sensual drapery can coexist flawlessly.",
-    publication: "ELLE INTERNATIONAL",
-    year: "2026"
+    quote: "A beacon of structured industrial fashion training, blending bridal luxury, modest couture, and manufacturing prowess in Nigeria.",
+    publication: "MSME INNOVATION DIGEST",
+    year: "2026 EDITORIAL"
   }
 ];

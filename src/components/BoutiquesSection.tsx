@@ -1,6 +1,7 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, Clock, Calendar } from 'lucide-react';
-import { BOUTIQUES } from '../data/fashionData';
+import { BOUTIQUES, BRAND_INFO } from '../data/fashionData';
 import { MediaImage } from './MediaImage';
 
 interface BoutiquesSectionProps {
@@ -9,29 +10,39 @@ interface BoutiquesSectionProps {
 
 export const BoutiquesSection: React.FC<BoutiquesSectionProps> = ({ onOpenAppointment }) => {
   return (
-    <section id="boutiques" className="py-24 bg-[#faf9fc] border-b border-purple-100/60">
+    <section id="boutiques" className="py-24 bg-[#faf9fc] border-b border-purple-100/60 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="max-w-2xl mb-16 space-y-3">
+        {/* Header with Scroll Pop */}
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-2xl mb-16 space-y-3"
+        >
           <div className="flex items-center gap-2">
             <span className="w-6 h-[1.5px] bg-purple-700" />
             <span className="text-xs uppercase tracking-[0.3em] font-semibold text-purple-900">
-              GLOBAL FLAGSHIPS & ATELIERS
+              PHYSICAL LOCATIONS & SALONS
             </span>
           </div>
           <h2 className="font-cinzel text-3xl sm:text-5xl font-bold tracking-tight text-zinc-950">
-            OUR PRIVATE SALONS
+            FLAGSHIP HUB & SALONS
           </h2>
           <p className="text-sm sm:text-base text-zinc-600 font-light">
-            Step into the physical sanctums of Six Fashion. Enjoy bespoke fittings, champagne service, and custom runway alterations.
+            Visit our primary facility in Jos, Plateau State, or reserve private styling sessions with our bridal couture team.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Boutiques 4-column cards */}
+        {/* Boutiques 4-column cards with Staggered Scroll Pop */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {BOUTIQUES.map((b) => (
-            <div
+          {BOUTIQUES.map((b, idx) => (
+            <motion.div
               key={b.city}
+              initial={{ opacity: 0, y: 45, scale: 0.93 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="bg-white border border-purple-100/80 shadow-xs overflow-hidden flex flex-col justify-between group hover:border-purple-300 transition-all"
             >
               <div>
@@ -81,7 +92,7 @@ export const BoutiquesSection: React.FC<BoutiquesSectionProps> = ({ onOpenAppoin
                   <span>Book Fitting</span>
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

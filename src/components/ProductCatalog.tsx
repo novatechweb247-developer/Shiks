@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { motion } from 'motion/react';
 import { Eye, Heart, ShoppingBag, SlidersHorizontal, Check } from 'lucide-react';
 import { Product } from '../types/fashion';
 import { MediaImage } from './MediaImage';
@@ -52,20 +53,26 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
   };
 
   return (
-    <section id="catalog" className="py-20 lg:py-28 bg-white">
+    <section id="catalog" className="py-20 lg:py-28 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title and Filter Bar */}
-        <div className="border-b border-zinc-200 pb-8 mb-10">
+        {/* Title and Filter Bar with Scroll Pop */}
+        <motion.div
+          initial={{ opacity: 0, y: 35, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="border-b border-zinc-200 pb-8 mb-10"
+        >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="w-5 h-[1.5px] bg-purple-700" />
                 <span className="text-xs uppercase tracking-[0.3em] font-semibold text-purple-900">
-                  HAUTE COUTURE CATALOG
+                  SHIKS ATELIER CATALOG
                 </span>
               </div>
               <h2 className="font-cinzel text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-950">
-                THE ATELIER COLLECTION
+                HAUTE COUTURE & BESPOKE CREATIONS
               </h2>
             </div>
 
@@ -107,18 +114,22 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
               );
             })}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Products Grid */}
+        {/* Products Grid with Scroll Pop-Up and Pop-Out */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-12">
-          {filteredProducts.map((product) => {
+          {filteredProducts.map((product, idx) => {
             const isHovered = hoveredCardId === product.id;
             const isWishlisted = wishlistIds.includes(product.id);
             const isJustAdded = addedAnimationId === product.id;
 
             return (
-              <div
+              <motion.div
                 key={product.id}
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: false, amount: 0.15 }}
+                transition={{ duration: 0.6, delay: (idx % 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 className="group flex flex-col cursor-pointer"
                 onMouseEnter={() => setHoveredCardId(product.id)}
                 onMouseLeave={() => setHoveredCardId(null)}
@@ -241,7 +252,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                     )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

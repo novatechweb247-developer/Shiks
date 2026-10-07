@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ArrowRight, Check, Sparkles } from 'lucide-react';
+import { ArrowRight, Check, Sparkles, MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
+import { BRAND_INFO } from '../data/fashionData';
 
 interface FooterProps {
   onOpenAppointment: () => void;
@@ -25,26 +26,26 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAppointment, onSelectCateg
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <div className="inline-flex items-center gap-2 text-purple-300 text-xs uppercase tracking-[0.3em] font-semibold">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Maison Six Private Circle</span>
+            <span>Maison Shiks Private Circle</span>
           </div>
           <h3 className="font-cinzel text-2xl sm:text-4xl font-bold tracking-tight">
-            BE THE FIRST TO RECEIVE PRIVATE COUTURE DROPS
+            BE THE FIRST TO RECEIVE PRIVATE COUTURE DROPS & ADMISSION ALERTS
           </h3>
           <p className="text-xs sm:text-sm text-zinc-400 font-light max-w-xl mx-auto">
-            Invitations to runway presentations, private salon fittings, and numbered capsule releases directly to your personal correspondence.
+            Invitations to bridal showcases, academy admissions, and the Alumni Impact Summit directly to your inbox.
           </p>
 
           {subscribed ? (
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-purple-900/60 border border-purple-500/40 text-purple-200 text-xs tracking-widest uppercase">
               <Check className="w-4 h-4 text-emerald-400" />
-              <span>Welcome to the Inner Circle. An invitation will be dispatched shortly.</span>
+              <span>Welcome to the Shiks Circle. Details will be dispatched shortly.</span>
             </div>
           ) : (
             <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row max-w-md mx-auto gap-2 pt-2">
               <input
                 type="email"
                 required
-                placeholder="Enter your personal email..."
+                placeholder="Enter your email address..."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 px-4 py-3 bg-zinc-900 border border-zinc-800 text-white placeholder:text-zinc-500 text-xs focus:outline-none focus:border-purple-500"
@@ -67,30 +68,41 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAppointment, onSelectCateg
           <div className="lg:col-span-2 space-y-4">
             <div className="flex flex-col">
               <span className="font-cinzel text-3xl font-extrabold tracking-[0.25em] text-white flex items-center gap-2">
-                SIX
+                SHIKS
                 <span className="w-2 h-2 bg-purple-600 inline-block"></span>
               </span>
               <span className="text-[10px] tracking-[0.45em] text-purple-300 uppercase font-semibold">
-                FASHION
+                FASHION & INNOVATION HUB
               </span>
             </div>
             <p className="text-xs text-zinc-400 font-light leading-relaxed max-w-sm">
-              The pinnacle of contemporary Haute Couture. Architectural tailoring, pure alabaster lines, and regal royal amethyst velvet crafted for discerning vanguards across the globe.
+              Multiple award-winning fashion institution and enterprise development hub founded in 2016 in Jos, Plateau State, Nigeria by Maryam Sadiq Shikra.
             </p>
-            <div className="text-[11px] text-purple-300 font-mono">
-              PARIS · LONDON · NEW YORK · MILAN
+            <div className="space-y-1.5 text-xs text-purple-300">
+              <div className="flex items-center gap-2">
+                <MapPin className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+                <span>{BRAND_INFO.headquarters}</span>
+              </div>
+              <div className="flex items-center gap-2 font-mono">
+                <Phone className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+                <span>{BRAND_INFO.phone1} / {BRAND_INFO.phone2}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+                <span>{BRAND_INFO.email}</span>
+              </div>
             </div>
           </div>
 
           {/* Collections */}
           <div className="space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-[0.25em] text-purple-300 font-cinzel">
-              COLLECTIONS
+              CREATIONS
             </h4>
             <ul className="space-y-2 text-xs text-zinc-400 font-light">
               <li>
                 <button onClick={() => onSelectCategory('Eveningwear')} className="hover:text-white transition-colors">
-                  Eveningwear & Gala
+                  Reception & Bridal Gowns
                 </button>
               </li>
               <li>
@@ -100,7 +112,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAppointment, onSelectCateg
               </li>
               <li>
                 <button onClick={() => onSelectCategory('Silk & Velvet')} className="hover:text-white transition-colors">
-                  Silk & Velvet Capsules
+                  Modest Fashion & Abayas
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onSelectCategory('Accessories')} className="hover:text-white transition-colors">
+                  Bedspreads, Duvets & Pillows
                 </button>
               </li>
               <li>
@@ -108,65 +125,59 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAppointment, onSelectCateg
                   Runway Statements
                 </button>
               </li>
-              <li>
-                <button onClick={() => onSelectCategory('Accessories')} className="hover:text-white transition-colors">
-                  Fine Leather & Accessories
-                </button>
-              </li>
             </ul>
           </div>
 
-          {/* Client Concierge */}
+          {/* Academy & Innovation Hub */}
           <div className="space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-[0.25em] text-purple-300 font-cinzel">
-              CONCIERGE
+              INNOVATION HUB
             </h4>
             <ul className="space-y-2 text-xs text-zinc-400 font-light">
               <li>
+                <a href="#hub" className="hover:text-white transition-colors">
+                  The 3-in-1 Model
+                </a>
+              </li>
+              <li>
+                <a href="#hub" className="hover:text-white transition-colors">
+                  Shared Production Facility
+                </a>
+              </li>
+              <li>
+                <a href="#hub" className="hover:text-white transition-colors">
+                  Alumni Impact Summit 2027
+                </a>
+              </li>
+              <li>
+                <a href="#founder" className="hover:text-white transition-colors">
+                  Founder Maryam Sadiq Shikra
+                </a>
+              </li>
+              <li>
                 <button onClick={onOpenAppointment} className="hover:text-white transition-colors">
-                  Book Private Salon Fitting
+                  Academy Admissions
                 </button>
-              </li>
-              <li>
-                <span className="hover:text-white transition-colors cursor-pointer">
-                  Complimentary White-Glove Shipping
-                </span>
-              </li>
-              <li>
-                <span className="hover:text-white transition-colors cursor-pointer">
-                  Provenance & Authenticity
-                </span>
-              </li>
-              <li>
-                <span className="hover:text-white transition-colors cursor-pointer">
-                  Bespoke Made-to-Measure
-                </span>
-              </li>
-              <li>
-                <span className="hover:text-white transition-colors cursor-pointer">
-                  Private Client Styling Services
-                </span>
               </li>
             </ul>
           </div>
 
-          {/* Maison Salons */}
+          {/* Connect & Socials */}
           <div className="space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-[0.25em] text-purple-300 font-cinzel">
-              MAISON SALONS
+              COMMUNITY
             </h4>
             <div className="space-y-2 text-xs text-zinc-400 font-light">
               <div>
-                <strong className="text-white block font-medium">Mayfair, London</strong>
-                <span>34 Old Bond Street</span>
+                <strong className="text-white block font-medium">Instagram</strong>
+                <span>{BRAND_INFO.instagram}</span>
               </div>
               <div>
-                <strong className="text-white block font-medium">Saint-Honoré, Paris</strong>
-                <span>18 Rue Saint-Honoré</span>
+                <strong className="text-white block font-medium">Facebook</strong>
+                <span>{BRAND_INFO.facebook}</span>
               </div>
-              <div>
-                <strong className="text-white block font-medium">Madison Ave, New York</strong>
-                <span>712 Madison Avenue</span>
+              <div className="pt-2 text-purple-300 text-[11px] font-medium">
+                "Building Skills · Creating Opportunities · Shaping the Future of Fashion"
               </div>
             </div>
           </div>
@@ -175,12 +186,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAppointment, onSelectCateg
         {/* Bottom Copyright */}
         <div className="border-t border-zinc-900 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-zinc-500 gap-4">
           <div>
-            © {new Date().getFullYear()} SIX FASHION ATELIER. All rights reserved.
+            © {new Date().getFullYear()} SHIKS FASHION & INNOVATION HUB. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
-            <span className="hover:text-zinc-300 cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-zinc-300 cursor-pointer">Terms of Service</span>
-            <span className="hover:text-zinc-300 cursor-pointer">Couture Provenance</span>
+            <span>Jos, Plateau State, Nigeria</span>
+            <span>·</span>
+            <span>Registration & CAC Documented</span>
           </div>
         </div>
       </div>

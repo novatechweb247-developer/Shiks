@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Heart, Search, Menu, X, Calendar, Sparkles } from 'lucide-react';
+import { ShoppingBag, Heart, Search, Calendar, Sparkles, Phone, MapPin } from 'lucide-react';
+import { BRAND_INFO } from '../data/fashionData';
 
 interface HeaderProps {
   cartCount: number;
@@ -17,8 +18,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenCart,
   onOpenWishlist,
   onOpenSearch,
-  onOpenAppointment,
-  activeSection
+  onOpenAppointment
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -33,11 +33,11 @@ export const Header: React.FC<HeaderProps> = ({
 
   const navLinks = [
     { name: 'Collections', href: '#collections' },
-    { name: 'Catalog', href: '#catalog' },
+    { name: 'Couture Catalog', href: '#catalog' },
     { name: 'The Runway', href: '#runway' },
-    { name: 'The Lookbook', href: '#lookbook' },
-    { name: 'Atelier Story', href: '#story' },
-    { name: 'Boutiques', href: '#boutiques' },
+    { name: '3-in-1 Model & Hub', href: '#hub' },
+    { name: 'Founder & Story', href: '#founder' },
+    { name: 'Hub & Salons', href: '#boutiques' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -50,15 +50,15 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <>
-      {/* Top Luxury Announcement Ticker */}
-      <div className="bg-gradient-to-r from-purple-950 via-purple-900 to-zinc-950 text-white text-[11px] tracking-[0.25em] uppercase py-2 px-4 font-medium transition-all">
+      {/* Top Luxury Announcement Ticker with Real Phone & Contact */}
+      <div className="bg-gradient-to-r from-purple-950 via-purple-900 to-zinc-950 text-white text-[11px] tracking-[0.22em] uppercase py-2 px-4 font-medium transition-all">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="hidden md:flex items-center gap-2 text-purple-200">
             <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-ping inline-block"></span>
-            <span>AUTUMN / WINTER 2026 COUTURE RUNWAY</span>
+            <span>BEST FASHION SCHOOL IN PLATEAU STATE · 500+ ALUMNI</span>
           </div>
           <div className="mx-auto md:mx-0 text-center font-light tracking-[0.2em] text-white/95">
-            Complimentary White-Glove Couture Shipping Worldwide · VIP Appointments in London, Paris & NY
+            British American Junction, Beside Kingsbite, Jos · Call/WhatsApp: {BRAND_INFO.phone1} / {BRAND_INFO.phone2}
           </div>
           <div className="hidden md:flex items-center gap-4 text-purple-200 text-[10px]">
             <button 
@@ -68,7 +68,7 @@ export const Header: React.FC<HeaderProps> = ({
               Book Atelier
             </button>
             <span className="text-purple-600">|</span>
-            <span className="text-white/80">EN / USD ($)</span>
+            <span className="text-white/80">NGN (₦) / USD ($)</span>
           </div>
         </div>
       </div>
@@ -83,15 +83,41 @@ export const Header: React.FC<HeaderProps> = ({
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Left: Mobile menu button & Desktop Nav */}
+            {/* Left: Animated Hamburger Button & Desktop Nav */}
             <div className="flex items-center gap-8">
+              {/* ANIMATED HAMBURGER BUTTON */}
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 text-zinc-900 hover:text-purple-700 transition-colors"
-                aria-label="Toggle menu"
+                className="lg:hidden relative w-9 h-9 flex flex-col justify-center items-center group cursor-pointer focus:outline-none"
+                aria-label="Toggle Navigation Menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                <div className="w-6 h-5 relative flex flex-col justify-between">
+                  {/* Top bar */}
+                  <span
+                    className={`h-[2px] w-6 bg-zinc-900 rounded-full transition-all duration-300 ease-in-out origin-center ${
+                      mobileMenuOpen
+                        ? 'rotate-45 translate-y-[9px] bg-purple-700'
+                        : 'group-hover:bg-purple-700'
+                    }`}
+                  />
+                  {/* Middle bar */}
+                  <span
+                    className={`h-[2px] w-6 bg-zinc-900 rounded-full transition-all duration-300 ease-in-out ${
+                      mobileMenuOpen
+                        ? 'opacity-0 scale-x-0'
+                        : 'group-hover:bg-purple-700'
+                    }`}
+                  />
+                  {/* Bottom bar */}
+                  <span
+                    className={`h-[2px] w-6 bg-zinc-900 rounded-full transition-all duration-300 ease-in-out origin-center ${
+                      mobileMenuOpen
+                        ? '-rotate-45 -translate-y-[9px] bg-purple-700'
+                        : 'group-hover:bg-purple-700'
+                    }`}
+                  />
+                </div>
               </button>
 
               <nav className="hidden lg:flex items-center gap-7">
@@ -108,14 +134,14 @@ export const Header: React.FC<HeaderProps> = ({
               </nav>
             </div>
 
-            {/* Center: Brand Logo */}
+            {/* Center: Brand Logo (SHIKS FASHION / SIX FASHION) */}
             <div className="flex flex-col items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <span className="font-cinzel text-2xl sm:text-3xl lg:text-3xl font-extrabold tracking-[0.28em] text-zinc-950 flex items-center gap-1.5">
-                SIX
+                SHIKS
                 <span className="w-1.5 h-1.5 bg-purple-700 inline-block mb-1"></span>
               </span>
               <span className="text-[9px] tracking-[0.45em] text-purple-900 uppercase font-semibold -mt-0.5">
-                FASHION
+                FASHION & HUB
               </span>
             </div>
 
@@ -188,13 +214,15 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
+        {/* Mobile Navigation Drawer with Animated Reveal */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-full bg-white/98 backdrop-blur-xl border-b border-purple-100 shadow-xl p-6 transition-all">
+          <div className="lg:hidden fixed inset-x-0 top-full bg-white/98 backdrop-blur-xl border-b border-purple-100 shadow-2xl p-6 transition-all animate-fade-in">
             <div className="flex flex-col space-y-4">
               <div className="pb-3 border-b border-zinc-100 flex items-center justify-between">
-                <span className="text-[10px] uppercase tracking-[0.25em] text-purple-900 font-bold">Navigation</span>
-                <span className="text-[10px] text-zinc-400">MAISON SIX</span>
+                <span className="text-[10px] uppercase tracking-[0.25em] text-purple-900 font-bold">
+                  SHIKS FASHION ACADEMY & HUB
+                </span>
+                <span className="text-[10px] text-zinc-400">JOS, NIGERIA</span>
               </div>
               {navLinks.map((link) => (
                 <button
@@ -205,7 +233,16 @@ export const Header: React.FC<HeaderProps> = ({
                   {link.name}
                 </button>
               ))}
-              <div className="pt-4 border-t border-zinc-100 flex flex-col gap-3">
+
+              <div className="pt-4 border-t border-zinc-100 space-y-3">
+                <div className="text-xs text-zinc-600 flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-purple-700 shrink-0" />
+                  <span>British American Jct, Beside Kingsbite, Jos</span>
+                </div>
+                <div className="text-xs text-zinc-600 flex items-center gap-2">
+                  <Phone className="w-3.5 h-3.5 text-purple-700 shrink-0" />
+                  <span>{BRAND_INFO.phone1} / {BRAND_INFO.phone2}</span>
+                </div>
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
@@ -214,7 +251,7 @@ export const Header: React.FC<HeaderProps> = ({
                   className="w-full py-3 bg-purple-950 text-white text-center text-xs uppercase tracking-[0.2em] font-medium hover:bg-purple-900 transition-colors flex items-center justify-center gap-2"
                 >
                   <Sparkles className="w-4 h-4 text-purple-300" />
-                  <span>Book Private Salon Session</span>
+                  <span>Book Private Bridal & Couture Fitting</span>
                 </button>
               </div>
             </div>
