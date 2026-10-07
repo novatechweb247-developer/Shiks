@@ -1,0 +1,6 @@
+{
+  "name": "SIX FASHION — Luxury Fashion & Haute Couture",
+  "description": "The official digital flagship of SIX FASHION. Defining modern regality through contemporary tailoring, sculptural silhouettes, and bespoke couture.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
